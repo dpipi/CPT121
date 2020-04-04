@@ -30,5 +30,7 @@ public class AccountTester {
          * CODE for part c) goes here *** print details for all accounts
          * System.out.println("Account Details"); /*** Code for part b) goes here
          ***/
+
+         // Test for myself
     }
 }
