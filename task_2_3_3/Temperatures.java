@@ -73,7 +73,7 @@ public class Temperatures {
     /*
      * Get average of all values in array
      */
-    @SuppressWarnings("unused")
+
     private static double average(int[] array, int size) {
         double total = 0;
 

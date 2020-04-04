@@ -12,7 +12,7 @@ public class Account {
         this.balance = amount;
     }
 
-    // getters
+    // accessors
     public double getBalance() {
         return balance;
     }
