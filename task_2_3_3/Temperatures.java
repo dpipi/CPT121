@@ -1,4 +1,4 @@
-package java.rmit.cpt121.task_2_3_3;
+package task_2_3_3;
 
 import java.util.Scanner;
 

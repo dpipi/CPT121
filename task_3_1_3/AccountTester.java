@@ -1,4 +1,4 @@
-package java.rmit.cpt121.task_3_1_3;
+package task_3_1_3;
 
 public class AccountTester
 

@@ -1,4 +1,4 @@
-package java.rmit.cpt121.task_2_1_3;
+package task_2_1_3;
 
 public class Repetition_1D {
 

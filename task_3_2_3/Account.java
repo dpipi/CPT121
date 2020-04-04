@@ -1,4 +1,4 @@
-package java.rmit.cpt121.task_3_2_3;
+package task_3_2_3;
 
 public class Account {
     private String name;
