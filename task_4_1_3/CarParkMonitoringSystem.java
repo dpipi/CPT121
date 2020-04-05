@@ -3,15 +3,16 @@ package task_4_1_3;
 import java.util.Scanner;
 
 public class CarParkMonitoringSystem {
-   private final static int LEVELS = 3;
-   private final static int SPACES_PER_LEVEL = 30;
-   private final static boolean OCCUPIED = true;
-   private final static boolean VACANT = false;
-   private final static boolean SERVICE = false;
-   private final static boolean INVALID_SPACE = false;
+
+   private static final int LEVELS = 3;
+   private static final int SPACES_PER_LEVEL = 12;
+
+   private static final int OCCUPIED = 0;
+   private static final int VACANT = 1;
+   private static final int OUT_OF_SERVICE = 2;
 
    // this array declaration needs to be updated
-   private static final boolean[][] carParkSpaces = new boolean[LEVELS][SPACES_PER_LEVEL];
+   private static final int[][] carParkSpaces = new int[LEVELS][SPACES_PER_LEVEL];
 
    private final static Scanner sc = new Scanner(System.in);
 
@@ -39,26 +40,38 @@ public class CarParkMonitoringSystem {
          // process menu selection and trigger corresponding helper method
          switch (selection) {
             case "A":
-               spaceEntered();
+               initializeCarParkSpaces();
                break;
             case "B":
-               spaceVacated();
+               spaceEntered();
                break;
             case "C":
-               displayCarParkStatus(carParkSpaces);
+               spaceVacated();
                break;
             case "D":
-               putSpaceInService();
+               displayCarParkStatus(carParkSpaces);
                break;
             case "E":
+               putSpaceInService();
+               break;
+            case "F":
                returnSpaceFromService();
                break;
             default:
-               System.out.println("Invalid selection - plese try again");
+               System.out.println("Invalid selection - please try again");
 
          }
       } while (selection.toUpperCase() != "X");
       sc.close();
+   }
+
+   // set all spaces to vacant
+   private static void initializeCarParkSpaces() {
+      for (int level = 0; level < carParkSpaces.length; level++) {
+         for (int spaceNumber = 0; spaceNumber < carParkSpaces[0].length; spaceNumber++) {
+            carParkSpaces[level][spaceNumber] = VACANT;
+         }
+      }
    }
 
    private static int getLevelIndex(char level) {
@@ -70,7 +83,7 @@ public class CarParkMonitoringSystem {
       System.out.println("Enter level (A, B or C): ");
       char level = sc.nextLine().toUpperCase().charAt(0);
 
-      System.out.println("Enter space number (0 - 29");
+      System.out.println("Enter space number (0 - 11");
       int spaceNumber = sc.nextInt();
 
       // clean up trailing newline
@@ -79,6 +92,7 @@ public class CarParkMonitoringSystem {
       int levelIndex = getLevelIndex(level);
 
       // insert new code here to update corresponding SpaceInfo object
+      carParkSpaces[levelIndex][spaceNumber] = OCCUPIED;
 
    }
 
@@ -87,7 +101,7 @@ public class CarParkMonitoringSystem {
       System.out.println("Enter level (A, B or C): ");
       char level = sc.nextLine().toUpperCase().charAt(0);
 
-      System.out.println("Enter space number (0 - 29");
+      System.out.println("Enter space number (0 - 11");
       int spaceNumber = sc.nextInt();
 
       // clean up trailing newline
@@ -96,11 +110,12 @@ public class CarParkMonitoringSystem {
       int levelIndex = getLevelIndex(level);
 
       // insert new code here to update corresponding SpaceInfo object
+      carParkSpaces[levelIndex][spaceNumber] = VACANT;
 
    }
 
    // DISPLAY CAR PARK STATUS METHOD
-   public static void displayCarParkStatus(boolean[][] carParkSpaces) {
+   public static void displayCarParkStatus(int[][] carParkSpaces) {
       // calculate total number of spaces available
       int levels = carParkSpaces.length;
       int spacesPerLevel = carParkSpaces[0].length;
@@ -135,7 +150,7 @@ public class CarParkMonitoringSystem {
       System.out.println("Enter level (A, B or C): ");
       char level = sc.nextLine().toUpperCase().charAt(0);
 
-      System.out.println("Enter space number (0 - 29");
+      System.out.println("Enter space number (0 - 11");
       int spaceNumber = sc.nextInt();
 
       // clean up trailing newline
@@ -144,7 +159,7 @@ public class CarParkMonitoringSystem {
       int levelIndex = getLevelIndex(level);
 
       // insert new code here to update corresponding SpaceInfo object
-
+      carParkSpaces[levelIndex][spaceNumber] = VACANT;
    }
 
    // PUT SPACE INTO SERVICE METHOD
@@ -152,7 +167,7 @@ public class CarParkMonitoringSystem {
       System.out.println("Enter level (A, B or C): ");
       char level = sc.nextLine().toUpperCase().charAt(0);
 
-      System.out.println("Enter space number (0 - 29");
+      System.out.println("Enter space number (0 - 11");
       int spaceNumber = sc.nextInt();
 
       // clean up trailing newline
@@ -161,6 +176,6 @@ public class CarParkMonitoringSystem {
       int levelIndex = getLevelIndex(level);
 
       // insert new code here to update corresponding SpaceInfo object
-
+      carParkSpaces[levelIndex][spaceNumber] = OUT_OF_SERVICE;
    }
 }
