@@ -33,7 +33,7 @@ public class Account {
         System.out.println();
     }
 
-    // mutator (setters) – only needed for the name!
+    // mutator's (setters) – only needed for the name!
     public void setName(String name) {
         this.name = name;
     }
