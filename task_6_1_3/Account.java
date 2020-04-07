@@ -2,7 +2,7 @@ package task_6_1_3;
 
 public class Account {
     private String name;
-    protected double balance;
+    private double balance;
     private String accID;
 
     // constructor
