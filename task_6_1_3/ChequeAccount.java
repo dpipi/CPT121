@@ -2,7 +2,8 @@ package task_6_1_3;
 
 import task_6_1_3.Account;
 
-public class ChequeAccount extends Account {
+public class ChequeAccount extends Account
+{
 
     // instant variables
     private double amountOverdrawn;
@@ -10,7 +11,8 @@ public class ChequeAccount extends Account {
     private int transactionCount;
 
     // Check account without overdraft facility
-    public ChequeAccount(String accID, String name, double amount) {
+    public ChequeAccount(String accID, String name, double amount)
+    {
         super(accID, name, amount);
 
         amountOverdrawn = 0;
@@ -20,7 +22,9 @@ public class ChequeAccount extends Account {
     }
 
     // Check account with overdraft facility
-    public ChequeAccount(String accID, String name, double amount, double overdraftLimit) {
+    public ChequeAccount(String accID, String name, double amount,
+                         double overdraftLimit)
+    {
         super(accID, name, amount);
 
         amountOverdrawn = 0;
@@ -29,30 +33,36 @@ public class ChequeAccount extends Account {
     }
 
     // setters (mutator)
-    public void overdraftLimit(double overdraftLimit) {
+    public void overdraftLimit(double overdraftLimit)
+    {
 
         this.overdraftLimit = overdraftLimit;
 
     }
 
-    public boolean withdraw(double amount) {
-        if (getBalance() >= amount + amount){
+    public boolean withdraw(double amount)
+    {
+        if (getBalance() >= amount + amount)
+        {
             super.withdraw(amount);
         }
 
-        return false; 
+        return false;
     }
 
     // getters (accessors)
-    public double getAmountOverdrawn() {
+    public double getAmountOverdrawn()
+    {
         return this.amountOverdrawn;
     }
 
-    public double getOverdraftLimit() {
+    public double getOverdraftLimit()
+    {
         return this.overdraftLimit;
     }
 
-    public int getTransactionCount() {
+    public int getTransactionCount()
+    {
         return this.transactionCount;
     }
 

@@ -1,8 +1,10 @@
 package task_6_1_3;
 
-public class AccountTester02 {
+public class AccountTester02
+{
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         // String accID, String name, double amount
         ChequeAccount CAccount01 = new ChequeAccount("Acc01", "David", 500);
         // String accID, String name, double amount, double overdraftLimit

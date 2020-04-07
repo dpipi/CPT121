@@ -2,8 +2,10 @@ package task_5_2_3;
 
 import java.util.*;
 
-public class AccountTester {
-    public static void main(String args[]) {
+public class AccountTester
+{
+    public static void main(String args[])
+    {
         String accountID;
         String name;
         int accountCounter = 0;
@@ -16,7 +18,8 @@ public class AccountTester {
 
         /*** CODE for part a) goes here ***/
         String answer = "Y"; // set variable for do while loop
-        do {
+        do
+        {
 
             // ask for accountID
             System.out.print("Enter accountID: ");
@@ -45,28 +48,32 @@ public class AccountTester {
          * ...interest to any account with a balance > $2000
          */
 
-        for (int i = 0; i < accountCounter; i++) {
+        for (int i = 0; i < accountCounter; i++)
+        {
             // test if balance > 2000
-            if (accounts[i].getBalance() > 2000) {
+            if (accounts[i].getBalance() > 2000)
+            {
                 accounts[i].deposit(accounts[i].getBalance() * .01);
             }
         }
 
         /***
-         * ii) Prompt user to enter an account ID, locate the Account object with that
-         * ID and process a withdrawal (getting the withdrawal amount from the user). If
-         * the ID is not found or the withdrawal fails then an appropriate error message
-         * should be displayed to the user.If the withdrawal is successful then display
-         * the new balance to the user.
+         * ii) Prompt user to enter an account ID, locate the Account object with
+         * that ID and process a withdrawal (getting the withdrawal amount from the
+         * user). If the ID is not found or the withdrawal fails then an appropriate
+         * error message should be displayed to the user.If the withdrawal is
+         * successful then display the new balance to the user.
          */
 
         // get account id from user
         System.out.println("Enter withdraw accountID: ");
         String accountDetail = sc.nextLine();
         // iterate through array to see if accountID exists
-        for (int i = 0; i < accountCounter; i++) {
+        for (int i = 0; i < accountCounter; i++)
+        {
             // test for account ID in array
-            if (accounts[i].getID().equalsIgnoreCase(accountDetail)) {
+            if (accounts[i].getID().equalsIgnoreCase(accountDetail))
+            {
                 // get withdraw amount from user
                 System.out.println("Enter withdraw amount: ");
                 double amount = sc.nextDouble();
@@ -74,23 +81,27 @@ public class AccountTester {
                 // get boolean on success or failure of withdraw
                 boolean success = accounts[i].withdraw(amount);
                 // display message based on withdraw success or failure
-                if (success == true) {
+                if (success == true)
+                {
                     System.out.println("Withdraw successfull");
-                } else {
+                }
+                else
+                {
                     System.out.println("Insufficient funds!");
                 }
             }
         }
 
         /***
-         * iii) Prompt the user to enter the names of two Account holders to organise a
-         * transfer for, locate the Accounts with the specified names and proceed with a
-         * transfer from the first account to the second. If either one or both of the
-         * accounts are not found, or the attempting transfer of funds fails, then a
-         * suitable error message should be displayed to the user. If the transfer is
-         * successful then display the new balances for the two Accounts to the user.
-         * Note that you should only use the one search loop to locate the to Accounts
-         * in question as this is a more efficient approach to the problem.
+         * iii) Prompt the user to enter the names of two Account holders to organise
+         * a transfer for, locate the Accounts with the specified names and proceed
+         * with a transfer from the first account to the second. If either one or
+         * both of the accounts are not found, or the attempting transfer of funds
+         * fails, then a suitable error message should be displayed to the user. If
+         * the transfer is successful then display the new balances for the two
+         * Accounts to the user. Note that you should only use the one search loop to
+         * locate the to Accounts in question as this is a more efficient approach to
+         * the problem.
          */
 
         // ask user for accountID to withdraw from
@@ -99,12 +110,16 @@ public class AccountTester {
         int accountOnePos = 0;
         // test if accountID for withdraw exists
         boolean accountOneExists = false;
-        for (int i = 0; i < accountCounter; i++) {
-            if (accounts[i].getID().equalsIgnoreCase(accountOne)) {
+        for (int i = 0; i < accountCounter; i++)
+        {
+            if (accounts[i].getID().equalsIgnoreCase(accountOne))
+            {
                 accountOneExists = true;
                 accountOnePos = i;
                 break;
-            } else {
+            }
+            else
+            {
                 accountOneExists = false;
             }
         }
@@ -115,24 +130,33 @@ public class AccountTester {
         int accountTwoPos = 0;
         // test if accountID for deposit exists
         boolean accountTwoExists = false;
-        for (int i = 0; i < accountCounter; i++) {
-            if (accounts[i].getID().equalsIgnoreCase(accountTwo)) {
+        for (int i = 0; i < accountCounter; i++)
+        {
+            if (accounts[i].getID().equalsIgnoreCase(accountTwo))
+            {
                 accountTwoExists = true;
                 accountTwoPos = i;
                 break;
-            } else {
+            }
+            else
+            {
                 accountTwoExists = false;
             }
         }
 
-        if (accountOneExists == true && accountTwoExists == true) {
+        if (accountOneExists == true && accountTwoExists == true)
+        {
             System.out.println("Enter amount to transfer");
             double transferAmount = sc.nextDouble();
-            boolean transferSuccess = accounts[accountOnePos].transfer(accounts[accountTwoPos], transferAmount);
+            boolean transferSuccess = accounts[accountOnePos]
+                        .transfer(accounts[accountTwoPos], transferAmount);
 
-            if (transferSuccess == true) {
+            if (transferSuccess == true)
+            {
                 System.out.println("Transfer of funds successfull!");
-            } else {
+            }
+            else
+            {
                 System.out.println("Transfer of funds failed!");
             }
         }
@@ -142,7 +166,8 @@ public class AccountTester {
          * print details for all accounts
          */
         System.out.println("Account Details");
-        for (int i = 0; i < accountCounter; i++) {
+        for (int i = 0; i < accountCounter; i++)
+        {
             System.out.println("Account ID: " + accounts[i].getID());
             System.out.println("Name: " + accounts[i].getName());
             System.out.println("Balance: " + accounts[i].getBalance());
