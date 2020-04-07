@@ -8,7 +8,6 @@ public class ChequeAccount extends Account {
     private double amountOverdrawn;
     private double overdraftLimit;
     private int transactionCount;
-    private double balance;
 
     // Check account without overdraft facility
     public ChequeAccount(String accID, String name, double amount) {
@@ -33,7 +32,7 @@ public class ChequeAccount extends Account {
     public void overdraftLimit(double overdraftLimit) {
 
         this.overdraftLimit = overdraftLimit;
-        
+
     }
 
     public boolean withdraw(double amount) {
