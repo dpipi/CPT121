@@ -1,6 +1,5 @@
 package task_6_1_3;
 
-import sun.reflect.generics.tree.Tree;
 import task_6_1_3.Account;
 
 public class ChequeAccount extends Account
@@ -132,7 +131,8 @@ public class ChequeAccount extends Account
         // ....add remaining deposit amount to current balance
         else
         {
-
+            super.deposit(amount - getAmountOverdrawn());
+            amountOverdrawn = 0;
         }
     }
 
