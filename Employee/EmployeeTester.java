@@ -11,13 +11,12 @@ public class EmployeeTester
         Employee e2 = new Employee("John", "Legal", "Clerk");
 
         // Task B - display team and position for jill
-        //System.out.println("Jills team:" + e1.getTeam());
-        //System.out.println("Jills position:" + e1.getPosition());
+        System.out.println("Jills team:" + e1.getTeam());
+        System.out.println("Jills position:" + e1.getPosition());
 
         // Task C - display team and position for john
-        //System.out.println("Jills team:" + e2.getTeam());
-        //System.out.println("Jills position:" + e2.getPosition());
-        e1.printDetails();
-        e2.printDetails();
+        System.out.println("Jills team:" + e2.getTeam());
+        System.out.println("Jills position:" + e2.getPosition());
+
     }
 }
