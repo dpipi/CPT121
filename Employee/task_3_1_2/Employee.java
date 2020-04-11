@@ -1,4 +1,4 @@
-package Employee;
+package Employee.task_3_1_2;
 
 public class Employee
 {
