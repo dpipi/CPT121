@@ -1,5 +1,9 @@
 package assignment_02_part_A;
 
+public class TestHarness {
+
+
+
     public static void main(String[] args) {
 
         String details;
@@ -12,40 +16,42 @@ package assignment_02_part_A;
 
         double price;
 
-        Demonstration d123 = new Demonstration(identifier, title, baseFee, maxAttendees, startingTime, duration);
+        Demonstration d123 = new Demonstration(identifier, title, baseFee,
+                                                maxAttendees, startingTime,
+                                                duration);
 
         // Demonstrate short hand display
-        details = String.format("Identifier    : %s\n", d123.getIdentifier());
-        details += String.format("Title         : %s\n", d123.getTitle());
-        details += String.format("Base fee      : $%.2f\n", d123.getBaseFee());
-        details += String.format("Max attendees : %d\n", d123.getMaxAttendees());
-        details += String.format("Starting time : %d\n", d123.getStartTime());
-        details += String.format("Duration      : %d\n", d123.getDuration());
+        details =  String.format("Identifier    : %s\n", d123.getIdentifier());
+        details += String.format("Title         : %s\n",d123.getTitle());
+        details += String.format("Base fee      : $%.2f\n",d123.getBaseFee());
+        details += String.format("Max attendees : %d\n",d123.getMaxAttendees());
+        details += String.format("Starting time : %d\n",d123.getStartTime());
+        details += String.format("Duration      : %d\n",d123.getDuration());
         System.out.println(details);
 
         // Demonstrate no membership costs
         price = d123.getCost();
-        System.out.printf("$%.2f\n", price);
+        System.out.printf("$%.2f\n",price);
 
         // Consession costs
         price = d123.getCost("concession");
-        System.out.printf("$%.2f\n", price);
+        System.out.printf("$%.2f\n",price);
 
         // FSRS Costs
         price = d123.getCost("FSRS");
-        System.out.printf("$%.2f\n", price);
+        System.out.printf("$%.2f\n",price);
 
         // ARHS Costs
         price = d123.getCost("ARHS");
-        System.out.printf("$%.2f\n", price);
+        System.out.printf("$%.2f\n",price);
 
         // MHR Costs
         price = d123.getCost("MHR");
-        System.out.printf("$%.2f\n", price);
+        System.out.printf("$%.2f\n",price);
 
         // All types costs
-        price = d123.getCost("concession", "FSRS", "ARHS", "MHR");
-        System.out.printf("$%.2f\n", price);
+        price = d123.getCost("concession","FSRS", "ARHS", "MHR");
+        System.out.printf("$%.2f\n",price);
 
         // Add attendee
         price = d123.getCost();
@@ -69,6 +75,7 @@ package assignment_02_part_A;
 
         // Add attendee
 
+
         System.out.println();
         d123.getAttendeeInfo();
         System.out.println();
@@ -88,6 +95,8 @@ package assignment_02_part_A;
         System.out.println();
 
         d123.cancelAttendee("K.Nguyen");
+
+
 
     }
 }
