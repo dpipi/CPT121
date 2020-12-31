@@ -1,7 +1,5 @@
 package task_6_1_3;
 
-import task_6_1_3.Account;
-
 public class ChequeAccount extends Account
 {
 
@@ -42,6 +40,7 @@ public class ChequeAccount extends Account
     }
 
     // withdraw method
+    @Override
     public boolean withdraw(double amount)
     {
         // if the withdrawal amount is greater than the total funds available
@@ -103,15 +102,14 @@ public class ChequeAccount extends Account
 
     public double getAvailableFunds()
     {
-        double totalFundsAvailable =
-                    super.getBalance() + (overdraftLimit - getAmountOverdrawn());
-        return totalFundsAvailable;
+        return super.getBalance() + (overdraftLimit - getAmountOverdrawn());
     }
 
     /***
      * c) The deposit method should be overridden to incorporate the new overdraft
      * ...facility into the deposit
      */
+    @Override
     public void deposit(double amount)
     {
         // if overdraft amount == 0
